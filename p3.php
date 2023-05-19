@@ -8,7 +8,7 @@
                 <div class='col-md-12 mt-3 alert alert-success'>
                     Você já respondeu esta questão.
                     <br/>
-                    <a href='index.php?pg=3'>Avançar</a>
+                    <a href='index.php?pg=4'>Avançar</a>
                 </div>
             </div>";
   }
@@ -16,7 +16,7 @@
 
 <?php
   $dbVerifica = new BancoDeDados;
-  $dbVerifica->query("SELECT * FROM respostas where pergunta = 1");
+  $dbVerifica->query("SELECT * FROM respostas where pergunta = 2");
   foreach ($dbVerifica->result() as $verifica) {}
   if ($verifica['status'] == 0){
     echo "<div class='row'>
@@ -29,9 +29,9 @@
 ?>
 <div class="row mt-1">
             <div class="col-md-12 mb-2">
-                <h1>Perfeito</h1>
+                <h1>????</h1>
                 <span>
-                    <img src="img/p2.jpg" alt="">
+                    <img src="img/p3.jpg" alt="">
                 </span>
             </div>
         </div>
@@ -51,22 +51,22 @@
         <?php
             if ($_SERVER["REQUEST_METHOD"] == 'POST')
             {
-                $resposta = "belo";
+                $resposta = "amor";
                 $formulario = strtolower($_POST["resposta"]);
                 
                 if ($resposta == $formulario){
                     $banco->query("UPDATE respostas SET status = 1 WHERE pergunta = '$numero';");
                     echo "<div class='row'>
                             <div class='col-md-12 mt-3 alert alert-success'>
-                                Hehehe. Não foi difícil, foi? ❤️
+                                É o que eu sinto por você ❤️
                                 <br/>
-                                <a href='index.php?pg=3'>Avançar</a>
+                                <a href='index.php?pg=5'>Avançar</a>
                             </div>
                         </div>";
                 }else{
                     echo "<div class='row'>
                             <div class='col-md-12 mt-3 alert alert-danger'>
-                                Olha, você vai precisar de olhos atentos. Tenta novamente.
+                                Clássicos dos ARGs. Tente novamente. 
                             </div>
                         </div>";
                 }
